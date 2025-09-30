@@ -2,14 +2,38 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Teste de Atenção</title>
+    <title>Um site inofensivo</title>
     <style>
       body {
         margin: 0;
-        overflow: hidden;
         background: black;
+        font-family: sans-serif;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        flex-direction: column;
       }
-      video {
+
+      #entrada {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      #acessarBtn {
+        padding: 20px 40px;
+        font-size: 24px;
+        background: red;
+        border: none;
+        color: white;
+        cursor: pointer;
+        margin-top: 20px;
+      }
+
+      #sustoVideo {
+        display: none;
         width: 100vw;
         height: 100vh;
         object-fit: cover;
@@ -17,9 +41,27 @@
     </style>
   </head>
   <body>
-    <video autoplay playsinline>
+    <div id="entrada">
+      <h1>Bem-vindo ao site</h1>
+      <button id="acessarBtn">Acessar o site</button>
+    </div>
+
+    <video id="sustoVideo">
       <source src="susto.mp4.mp4" type="video/mp4">
     </video>
+
+    <script>
+      const btn = document.getElementById('acessarBtn');
+      const entrada = document.getElementById('entrada');
+      const video = document.getElementById('sustoVideo');
+
+      btn.addEventListener('click', () => {
+        entrada.style.display = 'none';
+        video.style.display = 'block';
+        video.play();
+      });
+    </script>
   </body>
 </html>
+
 
